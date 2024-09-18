@@ -6,6 +6,7 @@
             <th>ID</th>
             <th>Nome</th>
             <th>Idade</th>
+            <th>Data de Nascimento</th>
             <th class="text-center">
                 <a [routerLink]="['/pessoas/novo']" title="Novo" alt="Novo" class="btn btn-xs btn-success">
                     <i class="fa fa-plus" aria-hidden="true"></i>Novo
@@ -14,9 +15,13 @@
         </tr>
         <tr *ngFor="let pessoa of pessoas">
             <td>{{pessoa.id}}</td>
-            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.nome | caixaAlta}}</td>
             <td>{{pessoa.idade}}</td>
+            <td>{{pessoa.dataNascimento! | mask: 'd0/M0/0000'}}</td>
             <td class="text-center" style="width: 300px">
+                <button type="button" class="btn btn-xs btn-info" (click)="abrirModalPessoa(pessoa)" >
+                <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                </button>
                 <a [routerLink]="['/pessoas/editar', pessoa.id]" class="btn btn-xs btn-info" title="Editar">
                     <i class="fa fa-edit" aria-hidden="true"></i>Editar
                 </a>

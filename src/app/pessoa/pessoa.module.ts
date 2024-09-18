@@ -5,23 +5,31 @@ import { ListarPessoaComponent } from './listar-pessoa/listar-pessoa.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { InserirPessoaComponent } from './inserir-pessoa/inserir-pessoa.component';
-import { NumericoDirective } from '../shared/directives/numerico.directive';
 import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
+import { SharedModule } from '../shared';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { ModalPessoaComponent } from './modal-pessoa/modal-pessoa.component';
+
 
 @NgModule({
   declarations: [
     ListarPessoaComponent,
     InserirPessoaComponent,
-    NumericoDirective,
-    EditarPessoaComponent
+    EditarPessoaComponent,
+    ModalPessoaComponent,
+
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
   providers: [
-    PessoaService
+    PessoaService,
+    provideNgxMask()
   ]
 })
 export class PessoaModule { }

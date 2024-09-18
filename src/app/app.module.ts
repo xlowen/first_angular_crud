@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { PessoaModule } from './pessoa/pessoa.module';
+import { EnderecoModule } from './endereco/endereco.module';
+import { SharedModule } from './shared';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -13,7 +16,10 @@ import { PessoaModule } from './pessoa/pessoa.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PessoaModule
+    SharedModule,
+    PessoaModule,
+    EnderecoModule,
+    NgbModule
   ],
   providers: [
     provideClientHydration()
