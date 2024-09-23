@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Endereco } from '../../shared';
 
 @Component({
   selector: 'app-modal-endereco',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './modal-endereco.component.css'
 })
 export class ModalEnderecoComponent {
-
+  @Input() endereco!: Endereco;
+  constructor(public activeModal: NgbActiveModal){}
 }

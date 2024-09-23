@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Estado } from '../../shared';
 
 @Component({
   selector: 'app-modal-estado',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './modal-estado.component.css'
 })
 export class ModalEstadoComponent {
-
+  @Input() estado!: Estado;
+  constructor(public activeModal: NgbActiveModal){}
 }

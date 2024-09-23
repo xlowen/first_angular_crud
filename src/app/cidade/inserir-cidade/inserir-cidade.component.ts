@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Cidade } from '../../shared';
+import { NgForm } from '@angular/forms';
+import { CidadeService } from '../services/cidade.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inserir-cidade',
@@ -6,5 +10,18 @@ import { Component } from '@angular/core';
   styleUrl: './inserir-cidade.component.css'
 })
 export class InserirCidadeComponent {
+  @ViewChild('formCidade') formCidade! : NgForm;
+  cidade: Cidade = new Cidade();
 
+  constructor(
+    private cidadeService: CidadeService,
+    private router: Router,
+  ){}
+
+  inserir(): void {
+    if(this.formCidade.form.valid) {
+      this.cidadeService.inserir(this.cidade);
+      this.router.navigate(['/cidades']);
+    }
+  }
 }

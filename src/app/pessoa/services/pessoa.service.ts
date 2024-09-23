@@ -32,7 +32,7 @@ export class PessoaService {
 
     pessoas.forEach((obj, index, objs) => {
       if (pessoa.id === obj.id){
-        objs[index] = pessoa
+        objs[index] = pessoa;
       }
     });
     localStorage[LS_CHAVE] = JSON.stringify(pessoas);

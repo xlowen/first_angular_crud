@@ -1,5 +1,6 @@
 export class Estado {
-    public id?: number;
-    public nome?: string;
-    public sigla?: string;
+    constructor(
+    public id?: number,
+    public nome?: string,
+    public sigla?: string){}
 }
