@@ -39,6 +39,6 @@ export class EstadoService {
   remover(id: number): void {
     let estados = this.listarTodos();
     estados = estados.filter(estado => estado.id !== id);
-    localStorage[LS_CHAVE] = estados;
+    localStorage[LS_CHAVE] = JSON.stringify(estados);
   }
 }

@@ -20,7 +20,7 @@
                 <button type="button" class="btn btn-xs btn-info" (click)="abrirModalCidade(cidade)" >
                 <i class="fa fa-eye" aria-hidden="true"></i> Ver
                 </button>
-                <a [routerLink]="['/estados/editar', cidade.id]" class="btn btn-xs btn-info" title="Editar">
+                <a [routerLink]="['/cidades/editar', cidade.id]" class="btn btn-xs btn-info" title="Editar">
                     <i class="fa fa-edit" aria-hidden="true"></i>Editar
                 </a>
                 <a href="" class="btn btn-xs btn-info" title="Remover" (click)="remover($event, cidade)">

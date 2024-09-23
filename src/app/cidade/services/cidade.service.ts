@@ -41,7 +41,7 @@ export class CidadeService {
   remover(id: number): void {
     let cidades = this.listarTodos();
     cidades = cidades.filter(cidade => cidade.id !== id);
-    localStorage[LS_CHAVE] = cidades;
+    localStorage[LS_CHAVE] = JSON.stringify(cidades);
   }
 
 }

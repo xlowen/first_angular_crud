@@ -20,7 +20,7 @@ export class EnderecoService {
     const enderecos = this.listarTodos();
     endereco.id = new Date().getTime();
     enderecos.push(endereco);
-    localStorage[LS_CHAVE] = JSON.stringify(endereco);
+    localStorage[LS_CHAVE] = JSON.stringify(enderecos);
   }
 
   buscarPorId(id: number): Endereco | undefined{
@@ -40,7 +40,7 @@ export class EnderecoService {
 
   remover(id: number): void {
     let enderecos = this.listarTodos();
-    enderecos = enderecos.filter(endereco => endereco.id === id);
+    enderecos = enderecos.filter(endereco => endereco.id !== id);
     localStorage[LS_CHAVE] = JSON.stringify(enderecos);
   }
 }
