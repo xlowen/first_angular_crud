@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { SharedModule } from '../shared';
 import { CidadeService } from './services/cidade.service';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -25,7 +26,8 @@ import { CidadeService } from './services/cidade.service';
     FormsModule,
     SharedModule,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
+    NgSelectModule
   ],
   providers: [
     CidadeService,

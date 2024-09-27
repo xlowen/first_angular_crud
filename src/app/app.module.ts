@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CidadeModule } from './cidade/cidade.module';
 import { EstadoModule } from './estado/estado.module';
 import { EnderecoModule } from './endereco/endereco.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EnderecoModule } from './endereco/endereco.module';
     CidadeModule,
     EstadoModule,
     NgbModule,
-    EnderecoModule
+    EnderecoModule,
+    NgSelectModule
   ],
   providers: [
     provideClientHydration()

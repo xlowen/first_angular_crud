@@ -1,10 +1,32 @@
-<div class="container-frluid">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <a href="#" class="navbar-brand">
-        {{ title }}
-      </a>
-    </div>
+  <nav class="navbar navbar-expand-md n navbar-dark bg-dark">
+    
+    <a href="" class="navbar-brand nav-link" routerLink="/pessoas"> 
+      <i class="fa fa-user-edit"></i>
+    </a>
+    <div class="navbar-collapse collapsed" id="navbarContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a href="" class="nav-link" routerLink="/pessoas">Pessoas</a>
+        </li>
+        <li class="nav-item">
+        <a href="" class="nav-link" routerLink="/enderecos">Endereços</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link" routerLink="/cidades">Cidades</a>
+      </li>
+        <li class="nav-item">
+        <a href="" class="nav-link" routerLink="/estados">Estados</a>
+      </li>
+      <li class="nav-item" ngbDropdown>
+        <div href="" class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">Cadastros</div>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown1">
+          <a href="#"ngbDropdownItem routerLink="/pessoas">Pessoas</a>
+          <a href="#"ngbDropdownItem routerLink="/enderecos">Endereços</a>
+          <a href="#"ngbDropdownItem routerLink="/cidades">Cidades</a>
+          <a href="#"ngbDropdownItem routerLink="/estados">Estados</a>
+        </div>
+      </li>
+    </ul>
+  </div>
   </nav>
   <router-outlet />
-</div>

@@ -25,7 +25,7 @@ import { ModalPessoaComponent } from './modal-pessoa/modal-pessoa.component';
     FormsModule,
     SharedModule,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
   ],
   providers: [
     PessoaService,
