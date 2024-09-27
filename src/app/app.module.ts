@@ -12,10 +12,14 @@ import { CidadeModule } from './cidade/cidade.module';
 import { EstadoModule } from './estado/estado.module';
 import { EnderecoModule } from './endereco/endereco.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { AuthModule } from './auth/auth.module';
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     EstadoModule,
     NgbModule,
     EnderecoModule,
-    NgSelectModule
+    NgSelectModule,
+    AuthModule
   ],
   providers: [
     provideClientHydration()

@@ -12,55 +12,136 @@ import { ListarEnderecoComponent } from './endereco/listar-endereco/listar-ender
 import { EditarEstadoComponent } from './estado/editar-estado/editar-estado.component';
 import { InserirEstadoComponent } from './estado/inserir-estado/inserir-estado.component';
 import { ListarEstadoComponent } from './estado/listar-estado/listar-estado.component';
+import { LoginComponent } from './auth/login/login.component';
+import { authGuard } from './auth/auth.guard';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [ 
-  { path: '',
-    redirectTo: 'pessoas/listar',
+  { 
+    path: '',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
-  { path: 'pessoas',
-    redirectTo: 'pessoas/listar'
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [authGuard],
+    data:{
+      role: 'ADMIN, GERENTE, FUNC'
+    }
   },
-  { path: 'pessoas/listar',
-    component: ListarPessoaComponent
+  { 
+    path: 'pessoas',
+    redirectTo: 'pessoas/listar',
   },
-  {path: 'pessoas/novo',
-    component: InserirPessoaComponent
+  { 
+    path: 'pessoas/listar',
+    component: ListarPessoaComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, GERENTE, FUNC'
+    }
   },
-  { path: 'pessoas/editar/:id',
-    component: EditarPessoaComponent
+  {
+    path: 'pessoas/novo',
+    component: InserirPessoaComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, GERENTE, FUNC'
+    }
   },
-  {path: 'estados/novo',
-    component: InserirEstadoComponent
-  },{path: 'enderecos/novo',
-    component: InserirEnderecoComponent
-  },{path: 'cidades/novo',
-    component: InserirCidadeComponent
+  { 
+    path: 'pessoas/editar/:id',
+    component: EditarPessoaComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, GERENTE, FUNC'
+    }
   },
-  { path: 'estados/listar',
-    component: ListarEstadoComponent
-  },{ path: 'cidades/listar',
-    component: ListarCidadeComponent
-  },{ path: 'enderecos/listar',
-    component: ListarEnderecoComponent
+  {
+    path: 'estados/novo',
+    component: InserirEstadoComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, FUNC'
+    }
   },
-  { path: 'estados',
-    redirectTo: 'estados/listar'
-  },{ path: 'cidades',
-    redirectTo: 'cidades/listar'
-  },{ path: 'enderecos',
-    redirectTo: 'enderecos/listar'
+  {
+    path: 'enderecos/novo',
+    component: InserirEnderecoComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, GERENTE'
+    }
   },
-  { path: 'estados/editar/:id',
-    component: EditarEstadoComponent
+  {
+    path: 'cidades/novo',
+    component: InserirCidadeComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN'
+    }
   },
-  { path: 'cidades/editar/:id',
-    component: EditarCidadeComponent
+  { 
+    path: 'estados/listar',
+    component: ListarEstadoComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, FUNC'
+    }
+  },{ 
+    path: 'cidades/listar',
+    component: ListarCidadeComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN'
+    }
+  },{ 
+    path: 'enderecos/listar',
+    component: ListarEnderecoComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, GERENTE'
+    }
   },
-  { path: 'enderecos/editar/:id',
-    component: EditarEnderecoComponent
-  }
-  
+  { 
+    path: 'estados',
+    redirectTo: 'estados/listar',
+  },{ 
+    path: 'cidades',
+    redirectTo: 'cidades/listar',
+  },{ 
+    path: 'enderecos',
+    redirectTo: 'enderecos/listar',
+  },
+  { 
+    path: 'estados/editar/:id',
+    component: EditarEstadoComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, FUNC'
+    }
+  },
+  { 
+    path: 'cidades/editar/:id',
+    component: EditarCidadeComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN'
+    }
+  },
+  { 
+    path: 'enderecos/editar/:id',
+    component: EditarEnderecoComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, GERENTE'
+    }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
 ];
 
 @NgModule({
